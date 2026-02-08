@@ -14,12 +14,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Ejecutar Hola Mundo
-        run: |
-          node index.js
+        run: node index.js
 
       - name: Enviar notificación a ntfy
         run: |
-          curl -X POST ^
-            -H "X-Title: Push a main detectado" ^
-            -d "Se subió código al repositorio ${{ github.repository }} por ${{ github.actor }}" ^
+          curl -X POST \
+            -H "X-Title: Push a main detectado" \
+            -d "Se subió código al repositorio ${{ github.repository }} por ${{ github.actor }}" \
             https://ntfy.sh/devops-itla
